@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 app.get("/api/v1/ss", async (req, res) => {
   const browser = await pupperteer.launch({
     executablePath: "/usr/bin/chromium-browser",
-    headless: false,
+    headless: true,
   });
   const page = await browser.newPage();
   req.body.width && req.body.height
@@ -29,6 +29,6 @@ app.get("/api/v1/ss", async (req, res) => {
   res.send(ss);
 });
 
-app.listen(process.env.port, () => {
+app.listen(process.env.port || 4000, () => {
   console.log(`Server running on port ${process.env.port}`);
 });
