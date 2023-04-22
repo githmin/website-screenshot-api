@@ -4,6 +4,7 @@ const app = express();
 const pupperteer = require("puppeteer");
 const cors = require("cors");
 
+const port = process.env.port || 4000;
 app.use(cors());
 app.use(express.json());
 
@@ -29,6 +30,6 @@ app.get("/api/v1/ss", async (req, res) => {
   res.send(ss);
 });
 
-app.listen(process.env.port || 4000, () => {
-  console.log(`Server running on port ${process.env.port}`);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
