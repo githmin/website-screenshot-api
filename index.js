@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 
 app.get("/api/v1/ss", async (req, res) => {
   const browser = await pupperteer.launch({
-    executablePath: "/usr/bin/chromium-browser",
+    // executablePath: "/usr/bin/chromium-browser",
     headless: true,
   });
   const page = await browser.newPage();
